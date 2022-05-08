@@ -11,9 +11,14 @@ const apiClient = axios.create({
 
 export default {
   getAllPosts() {
-    return apiClient.get("/pages/?type=timeline.Post&fields=intro,body");
+    return apiClient.get("/pages/?type=timeline.Post&fields=intro,body,date");
   },
   getIndexPages() {
     return apiClient.get("/pages/?type=timeline.IndexPage&fields=description");
+  },
+  getPost(slug) {
+    return apiClient.get(
+      "/pages/?fields=intro,date,body&type=timeline.Post&slug=" + slug
+    );
   },
 };

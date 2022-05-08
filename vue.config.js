@@ -1,5 +1,3 @@
-const path = require("path");
-
 const pages = {
   index: "src/main.js",
 };
@@ -20,5 +18,8 @@ module.exports = {
         },
       },
     },
+  },
+  configureWebpack: {
+    devtool: "source-map",
   },
 };

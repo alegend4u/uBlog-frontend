@@ -4,9 +4,12 @@
     <div class="index_descrip" v-html="indexPage?.description"></div>
     <div class="blog_grid">
       <template v-for="post in posts" :key="post.id">
-        <router-link class="blog" :to="`/blog/${post.meta.slug}`">
+        <router-link
+          class="blog"
+          :to="{ name: 'Post', params: { slug: post.meta.slug } }"
+        >
           <div class="content">
-            <p class="date">{{ post.date }}</p>
+            <p class="date">{{ getFormattedDate(post.date) }}</p>
             <p class="title">{{ post.title }}</p>
             <p class="subtext">{{ post.intro }}</p>
           </div>
@@ -18,6 +21,7 @@
 
 <script>
 import BlogService from "../services/BlogService";
+import { getFormattedDate } from "../services/Utils";
 
 export default {
   name: "IndexPage",
@@ -51,6 +55,7 @@ export default {
     this.resizeAllGridItems();
   },
   methods: {
+    getFormattedDate,
     resizeGridItem(item) {
       let grid = document.getElementsByClassName("blog_grid")[0];
       let rowHeight = parseInt(

@@ -3,6 +3,7 @@ import About from "../views/About.vue";
 import Portfolio from "../views/Portfolio.vue";
 import Contact from "../views/Contact.vue";
 import Blog from "../views/Blog.vue";
+import Post from "../views/Post.vue";
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: "/blog",
     name: "Blog",
     component: Blog,
+  },
+  {
+    path: "/blog/:slug",
+    props: true,
+    name: "Post",
+    component: Post,
   },
 ];
 
