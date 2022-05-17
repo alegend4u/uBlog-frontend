@@ -7,17 +7,17 @@
     </div>
     <router-link class="title" to="/">Rishabh Prajapati</router-link>
     <ul class="navbar">
-      <li><router-link class="navbar__item" to="/">About Me</router-link></li>
+      <li><router-link class="navbar__item" to="/">About</router-link></li>
       <li>
         <router-link class="navbar__item" to="/portfolio"
           >Portfolio</router-link
         >
       </li>
       <li>
-        <router-link class="navbar__item" to="/blog">Timeline Blog</router-link>
+        <router-link class="navbar__item" to="/blog">Blog</router-link>
       </li>
       <li>
-        <router-link class="navbar__item" to="/contact">Contact Me</router-link>
+        <router-link class="navbar__item" to="/contact">Connect</router-link>
       </li>
     </ul>
   </nav>

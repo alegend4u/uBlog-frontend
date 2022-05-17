@@ -29,7 +29,7 @@
           dominant-baseline="middle"
           text-anchor="middle"
         >
-          {{ getFormattedDate(page?.date) }}
+          {{ getFormattedDate(page?.last_published_at) }}
         </text>
       </svg>
 
@@ -53,7 +53,11 @@
       </g>
     </svg>
   </router-link>
-  <a class="nav_post prev" href="#">
+  <router-link
+    class="nav_post prev"
+    v-if="page?.prev_sibling_slug"
+    :to="{ name: 'Post', params: { slug: page?.prev_sibling_slug } }"
+  >
     <span class="tooltip_text">Prev blog</span>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 70">
       <g id="prev" transform="translate(0 70) rotate(-90)">
@@ -69,8 +73,12 @@
         />
       </g>
     </svg>
-  </a>
-  <a class="nav_post next" href="#">
+  </router-link>
+  <router-link
+    class="nav_post next"
+    v-if="page?.next_sibling_slug"
+    :to="{ name: 'Post', params: { slug: page?.next_sibling_slug } }"
+  >
     <span class="tooltip_text">Next blog</span>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 70">
       <g id="prev" transform="translate(0 70) rotate(-90)">
@@ -85,7 +93,7 @@
         />
       </g>
     </svg>
-  </a>
+  </router-link>
 </template>
 <script>
 import BlogService from "../services/BlogService";
@@ -100,14 +108,13 @@ export default {
     };
   },
 
+  // eslint-disable-next-line no-unused-vars
+  beforeRouteUpdate(to, from) {
+    this.fetchBlogData(to.params.slug);
+  },
+
   created() {
-    BlogService.getPost(this.slug)
-      .then((response) => {
-        this.page = response.data.items[0];
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.fetchBlogData(this.slug);
   },
 
   mounted() {
@@ -134,9 +141,20 @@ export default {
 
     window.onscroll = this.animate_header;
   },
-
   methods: {
     getFormattedDate,
+
+    fetchBlogData(slug) {
+      BlogService.getPostBySlug(slug)
+        .then((response) => {
+          this.page = response.data;
+          console.log(this.page);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
     animate_header() {
       let scroll = document.documentElement.scrollTop;
       var scale_down = 0;

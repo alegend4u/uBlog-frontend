@@ -11,14 +11,23 @@ const apiClient = axios.create({
 
 export default {
   getAllPosts() {
-    return apiClient.get("/pages/?type=timeline.Post&fields=intro,body,date");
+    return apiClient.get(
+      "/pages/?type=timeline.Post&fields=intro,body,last_published_at"
+    );
   },
   getIndexPages() {
     return apiClient.get("/pages/?type=timeline.IndexPage&fields=description");
   },
-  getPost(slug) {
-    return apiClient.get(
-      "/pages/?fields=intro,date,body&type=timeline.Post&slug=" + slug
-    );
+  getPostBySlug(slug) {
+    return apiClient
+      .get("/pages/?type=timeline.Post&slug=" + slug)
+      .then((response) => {
+        let post_id = response.data.items[0].id;
+        return this.getPostById(post_id);
+      })
+      .catch((error) => console.log(error));
+  },
+  getPostById(post_id) {
+    return apiClient.get("/pages/" + post_id);
   },
 };
