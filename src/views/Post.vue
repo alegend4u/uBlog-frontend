@@ -55,10 +55,13 @@
   </router-link>
   <router-link
     class="nav_post prev"
-    v-if="page?.prev_sibling_slug"
-    :to="{ name: 'Post', params: { slug: page?.prev_sibling_slug } }"
+    v-if="page?.prev_sibling"
+    :to="{ name: 'Post', params: { slug: page?.prev_sibling?.slug } }"
   >
-    <span class="tooltip_text">Prev blog</span>
+    <span class="tooltip_text left_align">
+      <span class="nav-label">Previous</span><br />
+      {{ page?.prev_sibling?.title }}
+    </span>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 70">
       <g id="prev" transform="translate(0 70) rotate(-90)">
         <path
@@ -76,10 +79,13 @@
   </router-link>
   <router-link
     class="nav_post next"
-    v-if="page?.next_sibling_slug"
-    :to="{ name: 'Post', params: { slug: page?.next_sibling_slug } }"
+    v-if="page?.next_sibling"
+    :to="{ name: 'Post', params: { slug: page?.next_sibling?.slug } }"
   >
-    <span class="tooltip_text">Next blog</span>
+    <span class="tooltip_text right_align">
+      <span class="nav-label">Next</span><br />
+      {{ page?.next_sibling?.title }}
+    </span>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 70">
       <g id="prev" transform="translate(0 70) rotate(-90)">
         <path
@@ -95,6 +101,7 @@
     </svg>
   </router-link>
 </template>
+
 <script>
 import BlogService from "../services/BlogService";
 import { getFormattedDate } from "../services/Utils";
@@ -187,4 +194,16 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/sass/blog/post.sass";
+
+.right_align {
+  text-align: right;
+}
+.left_align {
+  text-align: left;
+}
+.nav-label {
+  font-size: 0.8rem;
+  color: gray;
+  font-style: italic;
+}
 </style>
