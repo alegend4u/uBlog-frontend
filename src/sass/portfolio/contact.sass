@@ -16,9 +16,9 @@ form
 
 .split
   display: flex
-  height: calc(100vh - #{$nav-height})
+  height: 100vh
   width: 100vw
-  background: radial-gradient(226.97% 112.61% at 50% 45.31%, #FFFFFF 0%, #b6fcc2 100%)
+  background: radial-gradient(226.97% 112.61% at 50% 45.31%, #FFFFFF 0%, #aafab8 100%)
 
   .contact_info
     width: 100%
@@ -65,7 +65,8 @@ form
         flex: 1
         padding: 2rem
 
-        input[type='text'], textarea
+        input[type='text'], input[type='email'], textarea
+          background: transparent
           width: 100%
           border: none
           box-sizing: content-box

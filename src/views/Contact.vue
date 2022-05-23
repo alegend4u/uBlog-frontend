@@ -3,14 +3,21 @@
     <div class="contact_info">
       <p class="header_text">Let's Connect</p>
       <div class="page_body">
-        <form class="feedback_form" method="post">
-          <input type="text" name="name" placeholder="Name" />
-          <input type="text" name="email" placeholder="Email" required />
-          <textarea
-            name="feedback"
-            rows="5"
+        <form class="feedback_form" @submit.prevent="submitForm()">
+          <input type="text" name="name" placeholder="Name" v-model="name" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            v-model="email"
             required
+          />
+          <textarea
+            name="message"
+            v-model="message"
+            rows="5"
             placeholder="Anything on your mind ;)"
+            required
           ></textarea>
           <div class="button_container">
             <input type="submit" class="submit_button" />
@@ -53,19 +60,6 @@
           class="fab fa-github"
           ><font-awesome-icon :icon="['fab', 'github']"
         /></a>
-
-        <!-- <a
-          href="mailto:rishabh.prajapati0@gmail.com"
-          target="_blank"
-          class="fas fa-at"
-        >
-        </a>
-
-        <a
-          href="tel:+91942-928-8602"
-          target="_blank"
-          class="fas fa-phone-square-alt"
-        ></a> -->
       </div>
       <div class="email_phone">
         <a class="email" href="mailto:rishabh.prajapati0@gmail.com"
@@ -89,7 +83,44 @@
     </div>
   </div>
 </template>
+<script>
+import ContactService from "../services/ContactService";
 
+export default {
+  name: "Contact",
+  data() {
+    return {
+      name: null,
+      email: null,
+      message: null,
+    };
+  },
+  methods: {
+    submitForm() {
+      ContactService.submitFeedback({
+        name: this.name,
+        email: this.email,
+        message: this.message,
+      })
+        .then((response) => {
+          if (response.status === 201) {
+            // success
+            console.log("feedback success.");
+            this.name = "";
+            this.email = "";
+            this.message = "";
+          } else {
+            // failure
+            console.log("feedback failed to submit.");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 @import "@/sass/portfolio/contact.sass";
 
