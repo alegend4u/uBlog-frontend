@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Quicksand:wght@300&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Gudea:wght@700&display=swap')
 @import variables
 @import mixins
-
-*
-  text-shadow: 1px 2px 0 black
 
 form
   input, textarea
@@ -21,115 +18,116 @@ form
   display: flex
   height: calc(100vh - #{$nav-height})
   width: 100vw
+  background: radial-gradient(226.97% 112.61% at 50% 45.31%, #FFFFFF 0%, #D5FFDC 100%)
 
   .contact_info
     width: 100%
-    background-color: #505A5B
-    color: white
+    // background-color: #505A5B
     padding: 0 3rem
     font-size: 1.5rem
 
     .header_text
       padding-top: 2rem
-      font-family: 'Secular One', sans-serif
-      font-size: 3rem
-
-    .subtitle_text
-      font-family: 'Caveat', cursive
-      font-size: 3rem
-      text-align: right
+      font-family: 'Gudea', sans-serif
+      font-size: 2.5rem
+      text-align: center
+      color: #454545
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 
     .page_body
       display: flex
       justify-content: space-between
-      margin: 2rem 0
+      margin-top: 2rem
 
       .quote
+        flex: 1
         margin: auto
-        padding-right: 1rem
+        padding: 2rem
 
         &_text
           font-size: 3rem
+          font-weight: 700
+          color:#395c36
+          text-align: center
+          text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25)
           font-family: "Quicksand", sans-serif
+          margin: 2rem 0
 
         .author
           padding-top: 2rem
-
+          font-weight: 700
           text-align: right
           font-size: 2rem
+          text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25)
           font-family: 'Caveat', cursive
 
       .feedback_form
-        width: fit-content
-        border-left: 1px solid yellow
-
-        &:focus
-          border-color: white
-
-        *
-          margin-left: auto
-          border-color: $primary-color
-          @include transition-ease
+        flex: 1
+        padding: 2rem
 
         input[type='text'], textarea
+          width: 100%
           border: none
-          border-right: 2px solid #aaa
-
-          padding: 1rem
-          width: 30rem
-          margin: 0.5rem 0 1.5rem 0
-
+          box-sizing: content-box
+          padding: 0.5rem 1rem 0.5rem 0
+          margin-top: 1rem
           text-align: right
-          color: white
           font-family: "Roboto", sans-serif
           font-size: 1rem
+          transition: border-color 0.3s ease-in-out
+
+          &:hover
+            border-right: 3px solid gray
 
           &:focus
-            border-color: white
+            border-right: 3px solid black
 
         textarea
-          height: 10rem
+          height: 5rem
           resize: none
-          text-align: left
+
+        .button_container
+          display: flex
+          justify-content: flex-end
+          margin-top: 1rem
 
         .submit_button
           padding: 0.8rem
-          border: none
+          border: 2px solid #1b8500
           border-radius: 4px
           position: relative
           bottom: 4px
 
           text-transform: uppercase
-          color: white
-          background: darkcyan
+          color: #1b8500
+          background: white
 
           text-shadow: none
-          box-shadow: 0 4px 0 #4a4a4a
+          box-shadow: 0 4px 0 #1b8500
           transition: all .1s linear 0s
 
           &:hover
             bottom: 3px
-            box-shadow: 0 3px 0 #444
+            box-shadow: 0 3px 0 #1b8500
 
           &:active
             bottom: 0
-            box-shadow: 0 0 0 #444
+            box-shadow: 0 0 0 #1b8500
 
     .social_media
-      margin-top: 2rem
-      width: 50%
+      margin: 1rem auto
       display: flex
       justify-content: center
 
       a
-        color: white
+        color: black
         font-size: 3rem
-        margin-right: 5rem
-        text-shadow: 0 0 15px #444
+        padding: 0 3rem
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
         @include transition-ease
 
         &:hover
-          text-shadow: 0 0 5px #444
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
 
       .fa-instagram:hover
         color: #C13584
@@ -138,7 +136,7 @@ form
         color: #2d93ad
 
       .fa-at:hover
-        color: gray
+        color: black
 
       .fa-phone-square-alt:hover
         color: gold
@@ -148,18 +146,22 @@ form
 
     .email_phone
       display: flex
-      justify-content: flex-end
+      justify-content: center
+      align-content: center
+      height: 2rem
+
+      .email
+        text-align: right
 
       a
+        flex: 1
         font-size: 1rem
         padding: 0 1rem 0 1.2rem
-        border-right: 2px solid $primary-color
-        color: $primary-color
+        margin: auto
         @include transition-ease
 
         &:hover
-          border-right-color: white
-          color: white
+          color: #1b8500
 
   img
     box-shadow: 0 0 10px black

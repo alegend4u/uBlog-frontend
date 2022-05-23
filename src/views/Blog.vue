@@ -1,20 +1,22 @@
 <template>
-  <div class="container">
-    <p class="heading">{{ indexPage?.title }}</p>
-    <div class="index_descrip" v-html="indexPage?.description"></div>
-    <div class="blog_grid">
-      <template v-for="post in posts" :key="post.id">
-        <router-link
-          class="blog"
-          :to="{ name: 'Post', params: { slug: post.meta.slug } }"
-        >
-          <div class="content">
-            <p class="date">{{ getFormattedDate(post.last_published_at) }}</p>
-            <p class="title">{{ post.title }}</p>
-            <p class="subtext">{{ post.intro }}</p>
-          </div>
-        </router-link>
-      </template>
+  <div class="body_container">
+    <div class="container">
+      <p class="heading">{{ indexPage?.title }}</p>
+      <div class="index_descrip" v-html="indexPage?.description"></div>
+      <div class="blog_grid">
+        <template v-for="post in posts" :key="post.id">
+          <router-link
+            class="blog"
+            :to="{ name: 'Post', params: { slug: post.meta.slug } }"
+          >
+            <div class="content">
+              <p class="date">{{ getFormattedDate(post.last_published_at) }}</p>
+              <p class="title">{{ post.title }}</p>
+              <p class="subtext">{{ post.intro }}</p>
+            </div>
+          </router-link>
+        </template>
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +83,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/sass/blog/index_page.sass";
 </style>

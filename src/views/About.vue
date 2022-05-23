@@ -2,7 +2,7 @@
   <div class="section landing">
     <img
       class="back"
-      src="../assets/portfolio/landing.jpg"
+      src="../assets/portfolio/landing.png"
       alt="landing_image"
     />
   </div>
@@ -109,4 +109,8 @@
 
 <style lang="scss" scoped>
 @import "@/sass/portfolio/about.sass";
+
+body {
+  background-color: white;
+}
 </style>
