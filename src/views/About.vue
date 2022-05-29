@@ -5,104 +5,29 @@
       src="../assets/portfolio/landing.png"
       alt="landing_image"
     />
-  </div>
-  <div class="section moreabout">
-    <svg
-      class="back"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      viewBox="0 0 1920 1000"
-    >
-      <g id="Layer_2" data-name="Layer 2">
-        <g id="Layer_1-2" data-name="Layer 1">
-          <path class="cls-2" d="M0,0C1920.5.5,1920,1000,1920,1000H0Z" />
-        </g>
-      </g>
-    </svg>
-    <div class="title_sec">
-      <svg
-        class="title_line"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        viewBox="0 0 368.47 1"
-      >
-        <line class="cls-1" y1="0.5" x2="368.47" y2="0.5" />
-      </svg>
-      <p class="title">Little More About Me</p>
-      <svg
-        class="title_line"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        viewBox="0 0 368.47 1"
-      >
-        <line class="cls-1" y1="0.5" x2="368.47" y2="0.5" />
-      </svg>
-    </div>
-  </div>
-  <div class="section hobbies">
-    <svg
-      class="back"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      viewBox="0 0 1920 1000"
-    >
-      <g id="Layer_2" data-name="Layer 2">
-        <g id="Layer_1-2" data-name="Layer 1">
-          <path class="cls-2" d="M1920,0C1920,528,0,357,0,1000H1920Z" />
-        </g>
-      </g>
-    </svg>
-    <div class="title_sec">
-      <svg
-        class="title_line"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        viewBox="0 0 368.47 1"
-      >
-        <line class="cls-1" y1="0.5" x2="368.47" y2="0.5" />
-      </svg>
-      <p class="title">Hobbies & Interests</p>
-      <svg
-        class="title_line"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        viewBox="0 0 368.47 1"
-      >
-        <line class="cls-1" y1="0.5" x2="368.47" y2="0.5" />
-      </svg>
-    </div>
-  </div>
-  <div class="section recentblogs">
-    <svg
-      class="back"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      viewBox="0 0 1920 1000"
-    >
-      <g id="Layer_2" data-name="Layer 2">
-        <g id="Layer_1-2" data-name="Layer 1">
-          <path class="cls-2" d="M1920,1000C-.5,999.5,0,0,0,0H1920Z" />
-        </g>
-      </g>
-    </svg>
-    <div class="title_sec">
-      <svg
-        class="title_line"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        viewBox="0 0 368.47 1"
-      >
-        <line class="cls-1" y1="0.5" x2="368.47" y2="0.5" />
-      </svg>
-      <p class="title">Recent Blogs</p>
-      <svg
-        class="title_line"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        viewBox="0 0 368.47 1"
-      >
-        <line class="cls-1" y1="0.5" x2="368.47" y2="0.5" />
-      </svg>
+    <div class="container">
+      <div class="title">About me</div>
+      <div class="intro">
+        <div class="i_am">
+          <i>I'm...</i><br />
+          a <span>Software Engineer</span>,<br />
+          a <span>Gamer</span>,<br />
+          a <span>Chess player</span>,<br />
+          a <span>Nipponophile</span>,<br />
+          and
+          <span>a Being practicing the Power of Now</span>,<br />
+        </div>
+        <div class="but_those">
+          <i>But those are just mere words. On a deeper level, I love to...</i
+          ><br />
+          <span>
+            Disrupt the mundanity,<br />
+            Rewire the most interesting tool we all have: our brain<br />
+            Take the path of most resistance to,<br />
+            and keep this site up to date!
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
